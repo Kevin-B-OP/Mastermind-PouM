@@ -19,17 +19,20 @@ public class MastermindDuel {
         int scoreOrdi=0;
         boolean victoire;
         int deroulement = Beginner.mastermindDuel();
+        int manche = 1;
 
         if (deroulement==1) {
 
             do {
+                System.out.println("Manche "+manche+" round 1");
                 if (MChall.modeChallenger(NB_CHIFFRES) == true) {
                     scoreJoueur++;
                 }
-
+                System.out.println("Manche "+manche+" round 2");
                 if (MDef.modeDefenseur(NB_CHIFFRES) == true) {
                     scoreOrdi++;
                 }
+                manche ++;
                 System.out.println("");
                 System.out.println("Votre score est de " + scoreJoueur + " et celui de l'ordinateur " + scoreOrdi);
                 System.out.println("");
@@ -45,10 +48,11 @@ public class MastermindDuel {
         }
         else {
             do {
+                System.out.println("Manche "+manche+" round 1");
                 if (MDef.modeDefenseur(NB_CHIFFRES) == true) {
                     scoreOrdi++;
                 }
-                System.out.println("Votre score est de " + scoreJoueur + " et celui de l'ordinateur " + scoreOrdi);
+                System.out.println("Manche "+manche+" round 2");
                 if (MChall.modeChallenger(NB_CHIFFRES) == true) {
                     scoreJoueur++;
                 }
@@ -59,7 +63,7 @@ public class MastermindDuel {
             }
             while (!victoire);
             if (scoreJoueur==3){
-                System.out.println("Bravo vous avez gagné, n'hésitez pas à remettre en jeu votre trophé si vous en avez le courage");
+                System.out.println("Bravo vous avez gagné, n'hésitez pas à remettre en jeu votre titre si vous en avez le courage !");
             }
             else{
                 System.out.println("L'ordinateur a été meilleur cette fois mais ne vous en faites pas, c'est en persévérant que l'on devient meilleur ! Courage !!!");
@@ -68,13 +72,16 @@ public class MastermindDuel {
 
         int nbfin6= FinUtils.finMenu();
         if (nbfin6==1){
+            System.out.println("");
             mode6();
         }
         else if (nbfin6==2){
+            System.out.println("");
             Appli Menu = new Appli();
             Menu.partieUn();
         }
         else {
+            System.out.println("");
             System.out.println("Au revoir");
         }
     }

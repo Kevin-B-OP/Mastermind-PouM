@@ -31,7 +31,7 @@ public class MDef {
 
 
         int[] chiffres = new int[NB_CHIFFRES];
-        boolean victoire;
+        boolean victoire=false;
         //Boucle dans laquelle l'ordinateur va faire différentes propositions en essayant de trouver la solution
         //Système de vérification via la classe ScoreUtils
         do {
@@ -45,9 +45,13 @@ public class MDef {
 
 
             int vrai [] = ScoreUtils.comptage(chiffres,solution);
-            int present[] = ScoreUtils.comptage2(chiffres,solution);
-            System.out.println(ScoreUtils.phraseOrdi(vrai,present,chiffres));
-            victoire = vrai[0]==solution.length;
+
+            int present = ScoreUtils.present(chiffres,solution,vrai) ;                   ;
+            System.out.println(ScoreUtils.phraseEtape(vrai,present,nombreSaisi));
+            int bienPlace=ScoreUtils.bienPlace(vrai);
+            if (bienPlace == NB_CHIFFRES){
+                victoire=true;
+            }
 
             count++;
 

@@ -55,8 +55,8 @@ public class PouMChallenger {
 
             String retour = Score2Utils.comptage(chiffres, solution);
             System.out.println("Résultat pour "+nombreSaisi+" => "+retour);
-            int vrai [] = Score2Utils.verification(chiffres,solution);
-            if (vrai[0] == NB_CHIFFRES){
+            int vrai = Score2Utils.verification(chiffres,solution);
+            if (vrai == NB_CHIFFRES){
                 victoire=true;
             }
 

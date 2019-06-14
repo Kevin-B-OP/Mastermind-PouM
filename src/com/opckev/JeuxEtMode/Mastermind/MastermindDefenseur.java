@@ -5,6 +5,7 @@ import com.opckev.JeuxEtMode.Utils.Mastermind.AskNumberUtils;
 import com.opckev.JeuxEtMode.Utils.FinUtils;
 import com.opckev.JeuxEtMode.Utils.Mastermind.NumberUtils;
 import com.opckev.JeuxEtMode.Utils.Mastermind.ScoreUtils;
+import com.opckev.JeuxEtMode.Utils.PouM.Score2Utils;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -39,7 +40,7 @@ public class MastermindDefenseur {
 
 
         int[] chiffres = new int[NB_CHIFFRES];
-        boolean victoire;
+        boolean victoire=false;
         //Boucle dans laquelle l'ordinateur va faire différentes propositions en essayant de trouver la solution
         //Système de vérification via la classe ScoreUtils
         do {
@@ -48,14 +49,18 @@ public class MastermindDefenseur {
 
             Random r = new Random();
             for (int i = 0; i < NB_CHIFFRES; i++) {
-                chiffres[i] = r.nextInt(MAX + 1);
+                chiffres[i]= r.nextInt(MAX + 1);
             }
 
 
             int vrai [] = ScoreUtils.comptage(chiffres,solution);
-            int present[] = ScoreUtils.comptage2(chiffres,solution);
-            System.out.println(ScoreUtils.phraseOrdi(vrai,present,chiffres));
-            victoire = vrai[0]==solution.length;
+
+            int present = ScoreUtils.present(chiffres,solution,vrai) ;                   ;
+            System.out.println(ScoreUtils.phraseEtape(vrai,present,nombreSaisi));
+            int bienPlace=ScoreUtils.bienPlace(vrai);
+            if (bienPlace == NB_CHIFFRES){
+                victoire=true;
+            }
 
             count++;
 

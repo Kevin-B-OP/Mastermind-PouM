@@ -16,11 +16,11 @@ public class Score2Utils {
         for (i = 0; i < chiffres.length; i++) {
             bonChiffre = chiffres[i] == solution[i];
             if (bonChiffre) {
-                retour[i] = "=";
+                retour[i] = "= ";
             } else if (chiffres[i] < solution[i]) {
-                retour[i] = "+";
+                retour[i] = "+ ";
             } else if (chiffres[i] > solution[i]) {
-                retour[i] = "-";
+                retour[i] = "- ";
             }
         }
         String rep = "";
@@ -30,17 +30,34 @@ public class Score2Utils {
         return rep;
     }
 
-    public static int[] verification(int[] chiffres, int[] solution) {
+    public static int verification(int[] chiffres, int[] solution) {
         int i;
         boolean bonChiffre;
-        int vrai[] = new int[]{0, 0};
+        int vrai = 0;
 
         for (i = 0; i < chiffres.length; i++) {
             bonChiffre = chiffres[i] == solution[i];
             if (bonChiffre) {
-                vrai[0] = vrai[0] + 1;
+                vrai++;
             }
         }
         return vrai;
+    }
+    public static int[][] poumOrdi (int [][]chiffres, int[] solution){
+        String retour[] = new String[chiffres.length];
+        int i;
+        boolean bonChiffre;
+
+        for (i = 0; i < chiffres.length; i++) {
+            bonChiffre = chiffres[i][0] == solution[i];
+            if (bonChiffre) {
+                chiffres[i][1] = 0;
+            } else if (chiffres[i][0] < solution[i]) {
+                chiffres[i][1] = 1;
+            } else if (chiffres[i][0] > solution[i]) {
+                chiffres[i][1] = 2;
+            }
+        }
+        return chiffres;
     }
 }

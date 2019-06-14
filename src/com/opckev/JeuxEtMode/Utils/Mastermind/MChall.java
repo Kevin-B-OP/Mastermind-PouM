@@ -41,9 +41,11 @@ public class MChall {
                 chiffres[i] = (int) (nombreSaisi / (Math.pow(10, (NB_CHIFFRES - i - 1)))) % 10;
 
             int vrai [] = ScoreUtils.comptage(chiffres,solution);
-            int present[] = ScoreUtils.comptage2(chiffres,solution);
+
+            int present = ScoreUtils.present(chiffres,solution,vrai) ;                   ;
             System.out.println(ScoreUtils.phraseEtape(vrai,present,nombreSaisi));
-            if (vrai[0] == NB_CHIFFRES){
+            int bienPlace=ScoreUtils.bienPlace(vrai);
+            if (bienPlace == NB_CHIFFRES){
                 victoire=true;
             }
 

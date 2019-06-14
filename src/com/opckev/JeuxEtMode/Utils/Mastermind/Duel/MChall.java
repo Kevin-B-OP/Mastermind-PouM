@@ -1,7 +1,9 @@
-package com.opckev.JeuxEtMode.Utils.Mastermind;
+package com.opckev.JeuxEtMode.Utils.Mastermind.Duel;
 
 
 import com.opckev.JeuxEtMode.Utils.ControlUtils;
+import com.opckev.JeuxEtMode.Utils.Mastermind.NumberUtils;
+import com.opckev.JeuxEtMode.Utils.Mastermind.ScoreUtils;
 
 
 import java.util.Arrays;
@@ -10,7 +12,7 @@ import java.util.Random;
 public class MChall {
     public static boolean modeChallenger(int NB_CHIFFRES){
 
-        int ESSAIS_MAX=NumberUtils.essai();
+        int ESSAIS_MAX= NumberUtils.essai();
 
         //Chiffre à deviner, proposé par l'ordinateur (ordi)
         final int[] solution = new int[NB_CHIFFRES];

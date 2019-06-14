@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Beginner {
+    //Tirage au sort du mode duel mastermind pour savoir qui commence
     public static int mastermindDuel() {
         int retour;
         System.out.println("");

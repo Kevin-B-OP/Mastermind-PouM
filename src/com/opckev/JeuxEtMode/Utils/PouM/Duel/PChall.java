@@ -1,4 +1,4 @@
-package com.opckev.JeuxEtMode.PouM;
+package com.opckev.JeuxEtMode.Utils.PouM.Duel;
 
 import com.opckev.Appli;
 import com.opckev.JeuxEtMode.Utils.ControlUtils;
@@ -9,12 +9,10 @@ import com.opckev.JeuxEtMode.Utils.PouM.Score2Utils;
 import java.util.Arrays;
 import java.util.Random;
 
-public class PouMChallenger {
+public class PChall {
 
-    int scoreJoueur = 0;
-
-    //Mode de jeu Plus ou Moins ou le joueur doit trouver le chiffre de l'ordinateur
-    public void mode1() {
+    //Mode de jeu Plus ou Moins ou le joueur doit trouver le chiffre de l'ordinateur pour le mode duel
+    public static boolean modeDuel(int taille) {
 
         //Récupération des données du fichier prop
         int nbMax = NumberUtils.max();
@@ -22,7 +20,7 @@ public class PouMChallenger {
         int ESSAIS_MAX = NumberUtils.essai();
 
         //Permet de choisir la taille du chiffre à deviner de manière aléatoire (ordi)
-        final int NB_CHIFFRES = (int) (Math.random() * (nbMax - nbMin)) + nbMin;
+        final int NB_CHIFFRES = taille;
         final int MAX = 9;
 
         final int[] solution = new int[NB_CHIFFRES];
@@ -73,28 +71,12 @@ public class PouMChallenger {
             }
             //Message si le joueur trouve la réponse à temps
             else if (count < ESSAIS_MAX && victoire) {
-                scoreJoueur++;
                 System.out.println("Bravo, vous avez réussi en seulement " + count + " coups");
-                System.out.println("Votre score est de " + scoreJoueur + " point(s)");
             }
 
         }
         //La boucle s'arrête en cas de victoire ou si le joueur n'a plus de tentatives disponibles
         while (!victoire && count < ESSAIS_MAX);
-        System.out.println(" ");
-        fin();
-    }
-
-    public void fin() {
-        //Menu de fin de jeu fonctionnant grâce à FinUtils
-        int nbfin4 = FinUtils.finMenu();
-        System.out.println(" ");
-        if (nbfin4 == 1) {
-            mode1();
-        } else if (nbfin4 == 2) {
-            Appli.partieUn();
-        } else {
-            System.out.println("Au revoir");
-        }
+        return victoire;
     }
 }

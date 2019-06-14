@@ -5,22 +5,19 @@ import com.opckev.JeuxEtMode.Utils.Mastermind.AskNumberUtils;
 import com.opckev.JeuxEtMode.Utils.FinUtils;
 import com.opckev.JeuxEtMode.Utils.Mastermind.NumberUtils;
 import com.opckev.JeuxEtMode.Utils.PouM.PouMDef;
-import com.opckev.JeuxEtMode.Utils.PouM.Score2Utils;
-
-
-import java.util.Random;
-import java.util.Scanner;
 
 public class PouMDefenseur {
-    Scanner sc = new Scanner (System.in);
+
     int scoreOrdi = 0;
+
+    //Mode de jeu Plus ou Moins ou l'ordi doit trouver le choix du joueur
     public void mode2 () {
 
         int ESSAIS_MAX=NumberUtils.essai();
-        System.out.println("");
         final int MAX = 9;
         //Le choix de la taille du nombre est définie par le joueur qui devra choisir entre les deux valeurs extrêmes
         int NB_CHIFFRES= AskNumberUtils.mastermind1();
+        System.out.println("");
 
         final int[] solution = new int[NB_CHIFFRES];
 
@@ -32,23 +29,20 @@ public class PouMDefenseur {
         for (int i = 0; i < NB_CHIFFRES; i++)
             solution[i] = (int) (nombreSaisi / (Math.pow(10, (NB_CHIFFRES - i - 1)))) % 10;
 
-        int count = 0;
-
         //Partie Ordinateur
         System.out.println("Mastermind mode défenseur : l'ordinateur va essayer de trouver votre combinaison de chiffres" + MAX + ".");
         System.out.println("Il a le droit à " + ESSAIS_MAX + " essais");
         System.out.println("----------------------------");
 
+        //On récupère le fait que l'ordinateur ait gagné ou non
+        //Toute la partie proposition se passe dans cette class
+        boolean victoire= PouMDef.ordiPouM(solution,ESSAIS_MAX);
 
-        int[][] chiffres = new int[NB_CHIFFRES][2];
-        boolean victoire=false;
-        //Boucle dans laquelle l'ordinateur va faire différentes propositions en essayant de trouver la solution
-        //Système de vérification via la classe ScoreUtils
-        victoire= PouMDef.ordiPouM(solution,ESSAIS_MAX);
-
+        //Message si l'ordi perd
             if (!victoire) {
                 System.out.println("Bravo, vous avez réussie à épuiser les " + ESSAIS_MAX + " essais dont l'ordinateur disposait.");
             }
+            //Message si l'ordi gagne
             else if (victoire) {
                 scoreOrdi++;
                 System.out.println("Pas de chance, l'ordinateur a relevé le défi.");

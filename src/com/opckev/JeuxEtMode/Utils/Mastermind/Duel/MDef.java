@@ -1,14 +1,17 @@
-package com.opckev.JeuxEtMode.Utils.Mastermind;
+package com.opckev.JeuxEtMode.Utils.Mastermind.Duel;
 
 import com.opckev.Appli;
 import com.opckev.JeuxEtMode.Utils.FinUtils;
+import com.opckev.JeuxEtMode.Utils.Mastermind.AskNumberUtils;
+import com.opckev.JeuxEtMode.Utils.Mastermind.NumberUtils;
+import com.opckev.JeuxEtMode.Utils.Mastermind.ScoreUtils;
 
 import java.util.Arrays;
 import java.util.Random;
 
 public class MDef {
     public static boolean modeDefenseur(int NB_CHIFFRES){
-        int ESSAIS_MAX=NumberUtils.essai();
+        int ESSAIS_MAX= NumberUtils.essai();
         final int MAX = 9;
         //Le choix de la taille du nombre est définie par le joueur qui devra choisir entre les deux valeurs extrêmes
 

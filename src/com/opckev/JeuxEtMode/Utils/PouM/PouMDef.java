@@ -6,17 +6,23 @@ import java.util.Random;
 public class PouMDef {
     public static boolean ordiPouM(int solution[], int essais) {
         boolean victoire = false;
-        Random r = new Random();
+
         int r1[] = new int[solution.length];
         int r2[] = new int[solution.length];
         int c1[] = new int[solution.length];
-        int c2[] = new int[solution.length];
-        int max = 9;
-        int min = 0;
+        int max[] = new int [solution.length];
+        int min[] = new int [solution.length];
         int count = 0;
 
+        for (int g = 0; g < solution.length; g++){
+            max[g]=9;
+        }
+        for (int g = 0; g <solution.length; g++){
+            min[g]=0;
+        }
+
         for (int i = 0; i < solution.length; i++) {
-            r1[i] = min + (int) (Math.random() * ((max - min) + 1));
+            r1[i] = 0+(int) (Math.random() * ((9 - 0) + 1));
         }
         count++;
         int vrai = Score2Utils.verification(r1, solution);
@@ -31,17 +37,17 @@ public class PouMDef {
                 if (solution[i] == r1[i]) {
                     c1[i] = r1[i];
                 } else if (solution[i] < r1[i]) {
-                    max = r1[i]-1;
+                    max[i] = r1[i]-1;
                     c1[i]=10;
                 } else if (solution[i] > r1[i]) {
-                    min = r1[i]+1;
+                    min[i] = r1[i]+1;
                     c1[i]=10;
                 }
             }
             do {
                 for (int y = 0; y < solution.length; y++) {
                     if (c1[y]==10){
-                    r2[y] = min + (int) (Math.random() * ((max - min) + 1));
+                    r2[y] = min[y] + (int) (Math.random() * ((max[y] - min[y]) + 1));
                     }
                     else{
                         r2[y]=c1[y];
@@ -60,10 +66,10 @@ public class PouMDef {
                         if (solution[u] == r2[u]) {
                             c1[u] = r2[u];
                         } else if (solution[u] < r2[u]) {
-                            max = r2[u]-1;
+                            max[u] = r2[u]-1;
                             c1[u]=10;
                         } else if (solution[u] > r2[u]) {
-                            min = r2[u]+1;
+                            min[u] = r2[u]+1;
                             c1[u]=10;
                         }
                     }

@@ -1,10 +1,17 @@
 package com.opckev.JeuxEtMode.Utils.Mastermind;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Beginner {
-    //Tirage au sort du mode duel mastermind pour savoir qui commence
+    static final Logger logger = LogManager.getLogger(Logger.class.getName());
+    /**
+     * Tirage au sort du mode duel mastermind pour savoir qui commence
+     * @return chiffre définissant qui va commencer le mode duel
+     */
     public static int mastermindDuel() {
         int retour;
         System.out.println("");
@@ -25,6 +32,7 @@ public class Beginner {
                     bon = false;
                 }
             } catch (NumberFormatException|InputMismatchException e) {
+                logger.info("Erreur, saisie de lettre",e);
                 System.out.println("Veuillez rentrer le chiffre correspondant à votre choix");
                 bon = false;
             }

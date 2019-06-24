@@ -1,10 +1,17 @@
 package com.opckev.JeuxEtMode.Utils;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Scanner;
 
 public class ControlUtils {
-    //Permet le control de la taille et de la réponse donnée par le joueur
-    //Retour d'exception en cas de lettre dans le nombre
+    static final Logger logger = LogManager.getLogger(Logger.class.getName());
+    /**
+     * Permet de vérifier la taille et la validité de la proposition du joueur
+     * Retour d'exception en cas de saisie de lettre
+     */
+
     public static int test(int solution[]) {
         Scanner sc = new Scanner(System.in);
         System.out.println("veuillez rentrer un chiffre");
@@ -25,6 +32,7 @@ public class ControlUtils {
                 Integer.parseInt(a);
                 chiffres = true;
             } catch (NumberFormatException e) {
+                logger.info("Erreur de saisie",e);
                 System.out.println("Attention vous avez utilisé un caractère non autorisé. Ici seuls des chiffres sont attendus");
             }
             tb = chiffres && taille;

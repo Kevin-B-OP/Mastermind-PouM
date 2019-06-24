@@ -1,14 +1,15 @@
 package com.opckev.JeuxEtMode.Utils.PouM;
 
-import java.util.Arrays;
-
 public class Score2Utils {
 
-    //Programme permettant de vérifier si un chiffre est bien placé
+    /**
+     * Programme permettant de vérifier si un chiffre est bien placé
+     * @param chiffres Proposition du joueur
+     * @param solution nombre qu'il doit deviné, donné par l'ordinateur
+     * @return tableau contenant la comparaison pour chaque chiffre des deux précédents nombres
+     */
     public static String comptage(int chiffres[], int solution[]) {
 
-        System.out.println("la solution est " + Arrays.toString(solution));
-        System.out.println("vous avez proposé " + Arrays.toString(chiffres));
         String retour[] = new String[chiffres.length];
         int i;
         boolean bonChiffre;
@@ -30,6 +31,12 @@ public class Score2Utils {
         return rep;
     }
 
+    /**
+     * Compte le nombre de chiffres bien placés
+     * @param chiffres proposition du joueur
+     * @param solution nombre choisit par l'ordinateur qu'il doit deviner
+     * @return nombre de chiffres bien placés
+     */
     public static int verification(int[] chiffres, int[] solution) {
         int i;
         boolean bonChiffre;
@@ -43,6 +50,7 @@ public class Score2Utils {
         }
         return vrai;
     }
+    /*
     public static int[][] poumOrdi (int [][]chiffres, int[] solution){
         String retour[] = new String[chiffres.length];
         int i;
@@ -60,4 +68,5 @@ public class Score2Utils {
         }
         return chiffres;
     }
+     */
 }

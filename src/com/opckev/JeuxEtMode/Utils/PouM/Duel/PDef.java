@@ -5,6 +5,11 @@ import com.opckev.JeuxEtMode.Utils.Mastermind.NumberUtils;
 import com.opckev.JeuxEtMode.Utils.PouM.PouMDef;
 
 public class PDef {
+    /**
+     * Mode défenseur du mode duel du jeu Plus ou Moins
+     * @param taille taille du nombre choisie par le joueur
+     * @return le gagnant de la manche
+     */
     public static boolean modeDuel (int taille) {
 
         int ESSAIS_MAX= NumberUtils.essai();

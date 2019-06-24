@@ -1,9 +1,14 @@
 package com.opckev.JeuxEtMode.Utils.PouM;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public class PouMDef {
+    /**
+     * Mode défenseur du jeu Plus ou moins
+     * @param solution Nombre que doit deviner l'ordinateur. Il est donné par le joueur
+     * @param essais nombre de tentatives disponibles
+     * @return gagnant de la manche
+     */
     public static boolean ordiPouM(int solution[], int essais) {
         boolean victoire = false;
 

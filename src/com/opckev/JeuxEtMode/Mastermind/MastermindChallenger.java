@@ -74,7 +74,7 @@ public class MastermindChallenger {
 
             if (count == ESSAIS_MAX) {
                 //Message si jamais le joueur dépasse le nombre de tentatives
-                System.out.println("He non, vous avez epuisé vos " + ESSAIS_MAX + " essais, c'est perdu pour vous...");
+                System.out.println("Et non, vous avez epuisé vos " + ESSAIS_MAX + " essais, c'est perdu pour vous...");
                 System.out.println("La bonne combinaison était " + Arrays.toString(solution));
             } else if (count < ESSAIS_MAX && victoire) {
                 //Message si jamais le joueur trouve la solution avant de n'avoir plus de tentatives + 1 point ajouté à son score

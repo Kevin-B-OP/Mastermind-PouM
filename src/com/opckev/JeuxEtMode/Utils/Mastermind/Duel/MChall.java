@@ -10,6 +10,11 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class MChall {
+    /**
+     * Mode challenger du mode Mastermind duel
+     * @param NB_CHIFFRES taille du nombre choisie par le joueur
+     * @return Vainqueur de la manche
+     */
     public static boolean modeChallenger(int NB_CHIFFRES){
 
         int ESSAIS_MAX= NumberUtils.essai();

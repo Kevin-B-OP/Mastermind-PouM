@@ -10,21 +10,24 @@ import com.opckev.JeuxEtMode.Utils.ConsoleUtils;
 
 public class Appli {
 
+    /**
+     * Arborescence interne de l'application avec répartition sur les différents programmes
+     */
     public static void partieUn(){
         System.out.println("Bonjour et bienvenue sur cette plateforme de jeux");
         System.out.println("Que souhaitez vous faire ?");
         System.out.println("1 - Jouer au + ou -");
         System.out.println("2 - Jouer au Mastermind");
-        System.out.print("3 - Sortir de l'application");
-        int nbresponse= ConsoleUtils.afficherMenu("",3);
+        System.out.println("3 - Sortir de l'application");
+        int nbresponse= ConsoleUtils.afficherMenu(3);
         System.out.println(" ");
         if (nbresponse==1){
             System.out.println("A quel mode de jeu voulez vous jouer ?");
             System.out.println("1 - Mode challenger");
             System.out.println("2 - Mode défenseur");
             System.out.println("3 - Mode duel");
-            System.out.print("4 - Revenir au menu");
-            int nbmenu=ConsoleUtils.afficherMenu("",4);
+            System.out.println("4 - Revenir au menu");
+            int nbmenu=ConsoleUtils.afficherMenu(4);
             System.out.println(" ");
             if (nbmenu==1){
                 PouMChallenger Jeu = new PouMChallenger();
@@ -49,8 +52,8 @@ public class Appli {
             System.out.println("1 - Mode challenger");
             System.out.println("2 - Mode défenseur");
             System.out.println("3 - Mode duel");
-            System.out.print("4 - Revenir au menu");
-            int nbmenu=ConsoleUtils.afficherMenu("",4);
+            System.out.println("4 - Revenir au menu");
+            int nbmenu=ConsoleUtils.afficherMenu(4);
             System.out.println(" ");
             if (nbmenu==1){
                 MastermindChallenger Jeu = new MastermindChallenger();

@@ -11,7 +11,12 @@ import java.util.Random;
 
 public class PChall {
 
-    //Mode de jeu Plus ou Moins ou le joueur doit trouver le chiffre de l'ordinateur pour le mode duel
+    /**
+     * Mode challenger du mode duel du jeu Plus ou Moins
+     * @param taille taille du nombre choisie par le joueur
+     * @return le gagnant de la manche
+     */
+
     public static boolean modeDuel(int taille) {
 
         //Récupération des données du fichier prop

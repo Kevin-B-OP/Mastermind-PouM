@@ -40,7 +40,7 @@ public class PouMDuel {
                 }
                 manche++;
                 System.out.println("");
-                System.out.println("Votre score est de " + scoreJoueur + " et celui de l'ordinateur " + scoreOrdi);
+                System.out.println("Votre score est de " + scoreJoueur + " points et celui de l'ordinateur " + scoreOrdi+"points.");
                 System.out.println("");
                 victoire = scoreJoueur == 3 || scoreOrdi == 3;
             }

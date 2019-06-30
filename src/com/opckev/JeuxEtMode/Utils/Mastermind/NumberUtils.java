@@ -57,7 +57,7 @@ public class NumberUtils {
             essaisMax = Integer.parseInt(prop.getProperty("nbtries"));
         }
         catch (IOException ex) {
-            logger.info("Problème avec le fichier properties");
+            logger.info("Problème avec le fichier properties et le nombre d'essais");
             ex.printStackTrace();
         }
         return essaisMax;
